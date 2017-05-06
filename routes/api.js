@@ -51,7 +51,7 @@ app.post("/signup", function(req, res){
 })
 
 app.post("/login", function(req, res){
-    User.find({"username": req.body.email, "password": req.body.password}, function(err, foundUser){
+    User.find({"email": req.body.email, "password": req.body.password}, function(err, foundUser){
         if (err) return res.json({status : false , data : {"err" : err}})
         
         try{
