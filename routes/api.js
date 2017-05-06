@@ -57,18 +57,17 @@ app.post("/login", function(req, res){
         try{
         console.log(foundUser[0].name)
         var logined = false;
-        if (foundUser[0].username == req.body.username &&  foundUser[0].password == req.body.password){
+        if (foundUser[0].email == req.body.email &&  foundUser[0].password == req.body.password){
             logined = true
             return res.json({status : logined , data : {"err" : null, "id": foundUser[0]._id }})
         }
-        return res.json({status : logined , data : {"err" : "username or password incorrect"}});
+        return res.json({status : logined , data : {"err" : "email or password incorrect"}});
 
     }
     catch(err){
-        return res.json({status : false , data : {"err" : "username or password incorrect"}});
+        return res.json({status : false , data : {"err" : "email or password incorrect"}});
 
-    }
-        
+    }    
 
 
     })
@@ -123,6 +122,7 @@ User.findById(req.params.user_id, function(err, foundUser){
             console.log("*******")
             var actual_bac = bac - ((0.03 * time_started_hrs * bac)/200)
             if (actual_bac < 0.066){
+                // User.update({"_id" : req.params.user_id})
                 state = "sober";                
             } 
             else if (actual_bac > 0.067 && actual_bac < 0.133){
