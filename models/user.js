@@ -16,8 +16,8 @@ var userSchema = new Schema({
         required : true
     },
     mobile : {type:Number},
-    weight : {type : Number, required : true},
-    parameter : []
+    weight : {type : Number, required : true}
+    // parameter : []
 
  });
 

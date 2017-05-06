@@ -41,7 +41,7 @@ app.post("/signup", function(req, res){
         "weight" : req.body.weight
     }, function(err, user){
         if (err) return res.json({status : false , data : {"err" : err}})
-        return res.json({status : "true" , data : {"err" : err}})
+            return res.json({status : "true" , data : {"err" : err}})
 
     }
     );
