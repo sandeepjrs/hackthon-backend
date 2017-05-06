@@ -1,0 +1,112 @@
+
+    [
+        {
+            "company_name" : "t2s",
+            "categories" : 
+            [
+                {
+                    "category" : "pizza",
+                    "subcategories" : 
+                    [
+                            {
+                            "subcategy" : "large",
+                            "items" : [
+                                {"name": "chicken trill", "price" : 22.50 , "curr" : "EURO"},
+                                {"name": "tuna sub", "price" : 13.00, "curr" : "EURO"},
+                                {"name": "chicken trill", "price" : 67.90 , "curr" : "EURO"}
+                            ]
+                            },
+                            {
+                            "subcategy" : "small",
+                            "items" : [
+                                {"name": "chicken trill", "price" : 12.50 , "curr" : "EURO"},
+                                {"name": "tuna sub", "price" : 6.00, "curr" : "EURO"},
+                                {"name": "chicken trill", "price" : 35.90 , "curr" : "EURO"}
+                            ]
+                            }
+
+                    ]
+                },
+                                {
+                    "category" : "burger",
+                    "subcategories" : 
+                    [
+                            {
+                            "subcategy" : "large",
+                            "items" : [
+                                {"name": "allo chat", "price" : 22.50 , "curr" : "EURO"},
+                                {"name": "chikken tikka", "price" : 13.00, "curr" : "EURO"},
+                                {"name": "maharja mac", "price" : 67.90 , "curr" : "EURO"}
+                            ]
+                            },
+                             {
+                            "subcategy" : "large",
+                            "items" : [
+                                {"name": "allo chat", "price" : 12.50 , "curr" : "EURO"},
+                                {"name": "chikken tikka", "price" : 9.00, "curr" : "EURO"},
+                                {"name": "maharja mac", "price" : 90.90 , "curr" : "EURO"}
+                            ]
+                            }
+                      
+
+                    ]
+                }
+            ]
+            },
+
+
+             {
+            "company_name" : "emptycan",
+            "categories" : 
+            [
+                {
+                    "category" : "pizza",
+                    "subcategories" : 
+                    [
+                            {
+                            "subcategy" : "large",
+                            "items" : [
+                                {"name": "chicken trill", "price" : 22.50 , "curr" : "EURO"},
+                                {"name": "tuna sub", "price" : 13.00, "curr" : "EURO"},
+                                {"name": "chicken trill", "price" : 67.90 , "curr" : "EURO"}
+                            ]
+                            },
+                            {
+                            "subcategy" : "small",
+                            "items" : [
+                                {"name": "chicken trill", "price" : 12.50 , "curr" : "EURO"},
+                                {"name": "tuna sub", "price" : 6.00, "curr" : "EURO"},
+                                {"name": "chicken trill", "price" : 35.90 , "curr" : "EURO"}
+                            ]
+                            }
+
+                    ]
+                },
+                                {
+                    "category" : "burger",
+                    "subcategories" : 
+                    [
+                            {
+                            "subcategy" : "large",
+                            "items" : [
+                                {"name": "allo chat", "price" : 22.50 , "curr" : "EURO"},
+                                {"name": "chikken tikka", "price" : 13.00, "curr" : "EURO"},
+                                {"name": "maharja mac", "price" : 67.90 , "curr" : "EURO"}
+                            ]
+                            },
+                             {
+                            "subcategy" : "small",
+                            "items" : [
+                                {"name": "allo chat", "price" : 5.50 , "curr" : "EURO"},
+                                {"name": "chikken tikka", "price" : 9.00, "curr" : "EURO"},
+                                {"name": "maharja mac", "price" : 45.90 , "curr" : "EURO"}
+                            ]
+                            }
+                      
+
+                    ]
+                }
+            ]
+            }
+        
+    ]
