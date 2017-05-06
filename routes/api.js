@@ -31,11 +31,11 @@ app.post("/company", function(req, res){
 
 app.post("/signup", function(req, res){
     User.create({
-        "username" : req.body.username,
+        
         "name" : req.body.name,
         "password" : req.body.password,
         "age" : req.body.age,
-        "dob" : req.body.dob,
+        "gender" : req.body.gender,
         "email": req.body.email,
         "mobile" : req.body.mobile,
         "weight" : req.body.weight
