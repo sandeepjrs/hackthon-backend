@@ -11,6 +11,15 @@ var User = require("../models/user")
 module.exports = function(app){
 
 //create a new company
+
+
+
+app.get("/", function(req, res){
+    return res.json({status : "true" , data : {"version" : "v0.03", "err": null }})
+
+})
+
+
 app.post("/company", function(req, res){    
 
     company_name = req.body.name;
@@ -41,11 +50,30 @@ app.post("/signup", function(req, res){
 
 })
 
-app.get("/", function(req, res){
-    return res.json({status : "true" , data : {"version" : "v0.02", "err": null }})
+app.post("/login", function(req, res){
+    User.find({"username": req.body.username, "password": req.body.password}, function(err, foundUser){
+        if (err) return res.json({status : false , data : {"err" : err}})
+        
+        try{
+        console.log(foundUser[0].name)
+        var logined = false;
+        if (foundUser[0].username == req.body.username &&  foundUser[0].password == req.body.password){
+            logined = true
+            return res.json({status : logined , data : {"err" : null}})
+        }
+        return res.json({status : logined , data : {"err" : "username or password incorrect"}});
+
+    }
+    catch(err){
+        return res.json({status : false , data : {"err" : "username or password incorrect"}});
+
+    }
+        
+
+
+    })
 
 })
-
 
 
 
