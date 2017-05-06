@@ -3,6 +3,7 @@ var Company = require("../models/company")
 var Category = require("../models/category")
 var SubCategory = require("../models/subcategory")
 var Item = require("../models/item")
+
 // var Company = require("../models/company")
 
 module.exports = function(app){
@@ -17,8 +18,8 @@ app.post("/company", function(req, res){
     })
 });
 
-app.get("/testapi", function(req, res){
-    return res.json({status : "true" , msg : "works perfects", data : "Hello World"})
+app.get("/", function(req, res){
+    return res.json({status : "true" , data : {"version" : "v0.01"}})
 
 })
 

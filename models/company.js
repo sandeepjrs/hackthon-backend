@@ -22,4 +22,4 @@ var CompanySchema = new Schema({
 
 }
 
- module.exports = mongoose.model('gig', CompanySchema)
+ module.exports = mongoose.model('company', CompanySchema)
