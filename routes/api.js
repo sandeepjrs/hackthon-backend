@@ -17,6 +17,11 @@ app.post("/company", function(req, res){
     })
 });
 
+app.get("/testapi", function(req, res){
+    return res.json({status : "true" , msg : "works perfects", data : "Hello World"})
+
+})
+
 
 
 
