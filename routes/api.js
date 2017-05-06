@@ -4,6 +4,8 @@ var Category = require("../models/category")
 var SubCategory = require("../models/subcategory")
 var Item = require("../models/item")
 
+var User = require("../models/user")
+
 // var Company = require("../models/company")
 
 module.exports = function(app){
@@ -18,8 +20,29 @@ app.post("/company", function(req, res){
     })
 });
 
+app.post("/signup", function(req, res){
+    User.create({
+        "username" : req.body.username,
+        "name" : req.body.name,
+        "password" : req.body.password,
+        "age" : req.body.age,
+        "dob" : req.body.dob,
+        "email": req.body.email,
+        "mobile" : req.body.mobile,
+        "weight" : req.body.weight
+    }, function(err, user){
+        if (err) return res.json({status : false , data : {"err" : err}})
+        return res.json({status : "true" , data : {"err" : err}})
+
+    }
+    );
+
+
+
+})
+
 app.get("/", function(req, res){
-    return res.json({status : "true" , data : {"version" : "v0.01"}})
+    return res.json({status : "true" , data : {"version" : "v0.02", "err": null }})
 
 })
 
