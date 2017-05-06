@@ -15,7 +15,7 @@ module.exports = function(app){
 
 
 app.get("/", function(req, res){
-    return res.json({status : "true" , data : {"version" : "v0.03", "err": null }})
+    return res.json({status : "true" , data : {"version" : "v0.04", "err": null }})
 
 })
 
@@ -51,7 +51,7 @@ app.post("/signup", function(req, res){
 })
 
 app.post("/login", function(req, res){
-    User.find({"username": req.body.username, "password": req.body.password}, function(err, foundUser){
+    User.find({"username": req.body.email, "password": req.body.password}, function(err, foundUser){
         if (err) return res.json({status : false , data : {"err" : err}})
         
         try{
@@ -59,7 +59,7 @@ app.post("/login", function(req, res){
         var logined = false;
         if (foundUser[0].username == req.body.username &&  foundUser[0].password == req.body.password){
             logined = true
-            return res.json({status : logined , data : {"err" : null}})
+            return res.json({status : logined , data : {"err" : null, "id": foundUser[0]._id }})
         }
         return res.json({status : logined , data : {"err" : "username or password incorrect"}});
 
@@ -72,6 +72,92 @@ app.post("/login", function(req, res){
 
 
     })
+
+})
+
+app.post("/calculate_bac/:user_id", function(req, res){
+
+//from api [beverage_percent, no_pegs , peg_types, user_id]
+
+//     float cal_bac(
+//     weight,
+//     beverage_percent,
+//     no_pegs,
+//     peg_types,
+//     time_started_hrs
+// ){
+//     float bac = (0.0375 * beverage_percent * no_pegs * peg_types )/ weight
+//     float actual_bac = bac - ((0.03 * time_started_hrs * bac)/200)
+//     return actual_bac;
+// }
+
+// var body_calculate_bac = {
+//     "beverage_percent" : 40,
+//     "no_pegs" : 4,
+//     "peg_types" : 1,
+
+// }
+
+User.findById(req.params.user_id, function(err, foundUser){
+    var state = undefined;
+
+    if(err)  return res.json({status : "fasle" , msg : err})
+        console.log(foundUser)
+        if(foundUser != null){
+            // console.log(foundUser.weight, foundUser.email, foundUser.mobile)
+            var weight = foundUser.weight;
+
+            var beverage_percent = req.body.beverage_percent;
+            var no_pegs = req.body.no_pegs;
+            var peg_types = req.body.peg_types;
+            var time_started_hrs = req.body.time_started_hrs;
+
+            console.log(beverage_percent)
+
+
+
+
+            var bac = (0.0375 * beverage_percent * no_pegs * peg_types )/ weight
+            console.log("*******")
+            console.log(bac)
+            console.log("*******")
+            var actual_bac = bac - ((0.03 * time_started_hrs * bac)/200)
+            if (actual_bac < 0.066){
+                state = "sober";                
+            } 
+            else if (actual_bac > 0.067 && actual_bac < 0.133){
+                state = "tipsy"
+            }
+            else if (actual_bac < 0.2 && actual_bac > 0.134){
+                state = "drunked"
+            }
+            else if (actual_bac > 0.2){
+                state = "doctor"
+
+            }
+            return res.json({status : true , data : {"err" : null, "result": actual_bac, "state": state}});
+        }
+        else{
+        return res.json({status : false , data : {"err" : err}});
+        }
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })
 

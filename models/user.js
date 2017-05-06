@@ -4,19 +4,19 @@ var Schema = mongoose.Schema;
 
 
 var userSchema = new Schema({
-    username : {type : String, required : true, unique : true},
     name : {type : String, required : true},
     password : {type : String, required : true},
-    age : {type : Number},
-    dob : {type : Date},
+    age : {type : Number, required : true},
+    gender : {type : Number, required : true},
     email: {
         type: String,
         trim: true,
         lowercase: true,
-        unique: true
+        unique: true,
+        required : true
     },
     mobile : {type:Number},
-    weight : {type : Number}
+    weight : {type : Number, required : true}
 
  });
 
