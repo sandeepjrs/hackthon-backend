@@ -16,7 +16,7 @@ module.exports = function(app){
 
 
 app.get("/", function(req, res){
-    return res.json({status : "true" , data : {"version" : "v0.05", "err": null }})
+    return res.json({status : "true" , data : {"version" : "v0.06", "err": null }})
 
 })
 
