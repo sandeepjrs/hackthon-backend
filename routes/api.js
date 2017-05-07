@@ -5,6 +5,7 @@ var SubCategory = require("../models/subcategory")
 var Item = require("../models/item")
 
 var User = require("../models/user")
+var Badge = require("../models/badge")
 
 // var Company = require("../models/company")
 
@@ -49,6 +50,32 @@ app.post("/signup", function(req, res){
 
 
 })
+
+
+
+
+app.post("/badge", function(req, res){
+    Badge.create({
+        
+        "name" : req.body.name,
+        "image_link" :  req.body.image_link
+    }, function(err, user){
+        if (err) return res.json({status : false , data : {"err" : err}})
+            return res.json({status : "true" , data : {"err" : err}})
+
+    }
+    );
+});
+
+app.get("/badge",function(req, res){
+    Badge.find(function(err, docs){
+        return res.json(docs)
+
+})
+})
+
+
+
 
 app.post("/login", function(req, res){
     User.find({"email": req.body.email, "password": req.body.password}, function(err, foundUser){
